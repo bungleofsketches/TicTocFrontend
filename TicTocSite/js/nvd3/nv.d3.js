@@ -3613,7 +3613,7 @@ nv.models.discreteBarChart = function() {
     , yAxis = nv.models.axis()
     ;
 
-  var margin = {top: 15, right: 10, bottom: 50, left: 60} 
+  var margin = {top: 15, right: 10, bottom: 50, left: 60}
     , width = null
     , height = null
     , color = nv.utils.getColor()
@@ -5999,7 +5999,7 @@ nv.models.linePlusBarChart = function() {
        x = dataLines.filter(function(d) { return !d.disabled; }).length && dataLines.filter(function(d) { return !d.disabled; })[0].values.length ? lines.xScale() : bars.xScale();
       //x = dataLines.filter(function(d) { return !d.disabled; }).length ? lines.xScale() : bars.xScale(); //old code before change above
       y1 = bars.yScale();
-      y2 = lines.yScale(); // edit 1: sets y2 axis scale only - prev: y2 = lines.yScale();
+      y2 = lines.yScale();
 
       //------------------------------------------------------------
 
@@ -6074,8 +6074,7 @@ nv.models.linePlusBarChart = function() {
           .datum(dataBars.length ? dataBars : [{values:[]}])
 
       var linesWrap = g.select('.nv-linesWrap')
-      .datum(dataLines[0] && !dataLines[0].disabled ? dataLines : [{values:[]}] ); 
-          //.datum(dataBars[0] && !dataBars[0].disabled ? dataBars : [{values:[]}] ); // edit 3: Lines are using same data as bars. prev above
+          .datum(dataLines[0] && !dataLines[0].disabled ? dataLines : [{values:[]}] );
           //.datum(!dataLines[0].disabled ? dataLines : [{values:dataLines[0].values.map(function(d) { return [d[0], null] }) }] );
 
       d3.transition(barsWrap).call(bars);
@@ -6109,7 +6108,7 @@ nv.models.linePlusBarChart = function() {
 
 
       y2Axis
-        .scale(y2) // edit 2: prev: .scale(y2)
+        .scale(y2)
         .ticks( availableHeight / 36 )
         .tickSize(dataBars.length ? 0 : -availableWidth, 0); // Show the y2 rules only if y1 has none
 
@@ -6351,7 +6350,7 @@ nv.models.lineWithFocusChart = function() {
     .tickPadding(5)
     ;
   y2Axis
-    .orient('left') // orient y2Axis with left (edit)
+    .orient('left')
     ;
   //============================================================
 
@@ -9491,8 +9490,8 @@ nv.models.multiChart = function() {
 
       var dataLines1 = data.filter(function(d) {return !d.disabled && d.type == 'line' && d.yAxis == 1})
       var dataLines2 = data.filter(function(d) {return !d.disabled && d.type == 'line' && d.yAxis == 2})
-      var dataBars1 = data.filter(function(d) {return !d.disabled && d.type == 'bar' && d.yAxis == 1}) // edit 4 - orig: d.type == 'bar'
-      var dataBars2 = data.filter(function(d) {return !d.disabled && d.type == 'bar' && d.yAxis == 2}) // edit 4 - orig: d.type == 'bar'
+      var dataBars1 = data.filter(function(d) {return !d.disabled && d.type == 'bar' && d.yAxis == 1})
+      var dataBars2 = data.filter(function(d) {return !d.disabled && d.type == 'bar' && d.yAxis == 2})
       var dataStack1 = data.filter(function(d) {return !d.disabled && d.type == 'area' && d.yAxis == 1})
       var dataStack2 = data.filter(function(d) {return !d.disabled && d.type == 'area' && d.yAxis == 2})
 
@@ -9572,14 +9571,14 @@ nv.models.multiChart = function() {
         .height(availableHeight)
         .color(data.map(function(d,i) {
           return d.color || color[i % color.length];
-        }).filter(function(d,i) { return !data[i].disabled && data[i].yAxis == 1 && data[i].type == 'bar'})); // edit 4 - orig: data[i].type == 'bar'
+        }).filter(function(d,i) { return !data[i].disabled && data[i].yAxis == 1 && data[i].type == 'bar'}));
 
       bars2
         .width(availableWidth)
         .height(availableHeight)
         .color(data.map(function(d,i) {
           return d.color || color[i % color.length];
-        }).filter(function(d,i) { return !data[i].disabled && data[i].yAxis == 2 && data[i].type == 'bar'})); // edit 4 - orig: data[i].type == 'bar'
+        }).filter(function(d,i) { return !data[i].disabled && data[i].yAxis == 2 && data[i].type == 'bar'}));
 
       stack1
         .width(availableWidth)
