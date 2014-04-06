@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
+  fill-opacity: 0; 
 }
 
 /********************
@@ -361,7 +362,7 @@ svg .title {
 
 .nvd3 .nv-groups path.nv-line {
   fill: none;
-  stroke-width: 0px; /* original: 1.5px */
+  stroke-width: 0px; /* line width edit p prev: 1.5px*/
   /*
   stroke-linecap: round;
   shape-rendering: geometricPrecision;
@@ -410,6 +411,7 @@ svg .title {
   */
 
 .nvd3.nv-line .nvd3.nv-scatter .nv-groups .nv-point {
+  stroke-width: 6px;
   fill-opacity: 1;
   stroke-opacity: 1;
 }
@@ -437,9 +439,9 @@ svg .title {
 
 .nvd3 .nv-point-paths path {
   stroke: #aaa;
-  stroke-opacity: 0;
+  stroke-opacity: 0; 
   fill: #eee;
-  fill-opacity: 0;
+  fill-opacity: 0; 
 }
 
 
@@ -481,8 +483,8 @@ svg .title {
 /*
 .nv-group.hover .nv-point {
   fill-opacity: 1;
-}
-*/
+} */
+
 
 
 /**********

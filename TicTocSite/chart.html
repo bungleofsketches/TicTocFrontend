@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <h1>Energy Usage</h1>
+
+<script src="js/d3.v3.js" charset="utf-8"></script>
+<script src="js/nv.d3.js"></script>
+<script type="text/javascript" src="linebar.js"></script>
+
+<link href="nv.d3.css" rel="stylesheet">
+  </head>
+<body>  
+<h3 id='text1' align="center">Taking two separate data sets. "Average" data shown in pink.</h3> 
+<div id='chart1'>
+  <svg style='height:500px'> </svg>	  
+  <!-- <svg style='height:500px;width:500px'> </svg> -->
+</div>
+<!--<script src="linebar6.js"></script> -->
+<div id="option">
+    <input name="updateButton" 
+                 type="button" 
+                value="Don't click me." 
+                onclick="d3.select('svg').remove();redraw();" />
+</div>
+
+
+<h3 align="left">Recently done:</h3>
+	<ul>
+		<li>Went from <i><a href="linePlusBarChart5.html">this</a></i> terrible implementation of two stacked graphs to the one you see here.</li>
+		<li>Clip Data + Average Data now displayed on one graph. This allows for effective tooltips (hover over a point).
+		<li>Y-Axis set to default scale.</li>	
+		<li>Deleted Y2-Axis.</li>
+	</ul>
+<h3 align="left">To do:</h3>
+	<ul>
+		<li>Configure x-axis to be compatible with different time frames, ie, times, minutes, days.. (Currently on <strike>days</strike> hour/min/second.) </li>
+		<li>Implement buttons to call for new data from API.</li>
+	</ul>	
+
+</body>
+</html>
